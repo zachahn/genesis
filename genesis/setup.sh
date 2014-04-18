@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export GENESIS_SETUP_DIR=/vagrant/vagrant
-source $GENESIS_SETUP_DIR/helpers.sh
+export GENESIS_SETUP_DIR=/vagrant/genesis
+source $GENESIS_SETUP_DIR/genesis.sh
 
 LET NOTICE="@_@"
 LET MYSQL_ROOT_PASSWORD=zachahnisgoodlooking
