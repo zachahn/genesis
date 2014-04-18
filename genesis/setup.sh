@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GENESIS_SETUP_DIR=/vagrant/vagrant
+export GENESIS_SETUP_DIR=/vagrant/genesis
 source $GENESIS_SETUP_DIR/genesis.sh
 
 LET NOTICE="@_@"
