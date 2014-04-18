@@ -2,8 +2,8 @@
 
 if is_not_installed "mysql-server" ; then
 
-  echo 'mysql-server mysql-server/root_password password zachahnisgoodlooking' | debconf-set-selections
-  echo 'mysql-server mysql-server/root_password_again password zachahnisgoodlooking' | debconf-set-selections
+  echo 'mysql-server mysql-server/root_password password' $GENESIS_MYSQL_ROOT_PASSWORD | debconf-set-selections
+  echo 'mysql-server mysql-server/root_password_again password' $GENESIS_MYSQL_ROOT_PASSWORD | debconf-set-selections
 
   install_pkg "mysql-server"
 

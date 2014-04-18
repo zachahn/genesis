@@ -1,14 +1,18 @@
 #!/bin/bash
 
+LET () {
+  export GENESIS_$1=$2
+}
+
 # `is_installed apache2`
 #   returns 0 for true, 1 for false
 is_installed ()
 {
   if dpkg --get-selections | grep -v deinstall | grep --quiet "$1" ; then
-    echo $NOTICE package '`'$1'`' is already installed
+    echo $GENESIS_NOTICE package '`'$1'`' is already installed
     return 0
   else
-    echo $NOTICE package '`'$1'`' is not installed
+    echo $GENESIS_NOTICE package '`'$1'`' is not installed
     return 1
   fi
 }
@@ -16,17 +20,17 @@ is_installed ()
 is_not_installed ()
 {
   if dpkg --get-selections | grep -v deinstall | grep --quiet "$1" ; then
-    echo $NOTICE package '`'$1'`' is already installed
+    echo $GENESIS_NOTICE package '`'$1'`' is already installed
     return 1
   else
-    echo $NOTICE package '`'$1'`' is not installed
+    echo $GENESIS_NOTICE package '`'$1'`' is not installed
     return 0
   fi
 }
 
 install_pkg ()
 {
-  echo $NOTICE installing pkg $1
+  echo $GENESIS_NOTICE installing pkg $1
   apt-get install -qy $1
 }
 
@@ -40,8 +44,8 @@ maybe_install_pkg () {
 #   runs `module/apache.sh`
 run_module ()
 {
-  echo $NOTICE loading module $1
-  source $SETUP_DIR/modules/$1/init.sh
+  echo $GENESIS_NOTICE loading module $1
+  source $GENESIS_SETUP_DIR/modules/$1/init.sh
 }
 
 aptupdate ()
