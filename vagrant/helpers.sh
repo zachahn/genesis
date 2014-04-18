@@ -1,5 +1,9 @@
 #!/bin/bash
 
+LET () {
+  export GENESIS_$1=$2
+}
+
 # `is_installed apache2`
 #   returns 0 for true, 1 for false
 is_installed ()
