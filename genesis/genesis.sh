@@ -40,9 +40,9 @@ maybe_install_pkg () {
   fi
 }
 
-# `run_module "apache"`
+# `LET_THERE_BE "apache"`
 #   runs `module/apache.sh`
-run_module ()
+LET_THERE_BE ()
 {
   echo $GENESIS_NOTICE loading module $1
   source $GENESIS_SETUP_DIR/modules/$1/init.sh
